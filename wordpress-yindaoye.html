@@ -1,0 +1,1004 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content=" 如何给WordPress网站添加欢迎引导页		, 风之流年,Nginx,WordPress,Linux,学习笔记">
+    <meta name="description" content="一些关于WordPress、Linux和其他乱七八糟的学习资料备份。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title> 如何给WordPress网站添加欢迎引导页		 | 风之流年</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">风之流年</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">风之流年</div>
+        <div class="logo-desc">
+            
+            一些关于WordPress、Linux和其他乱七八糟的学习资料备份。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.iohttps://tva1.sinaimg.cn/large/007oPOSbly1g1122p4vbej30hs0aoq3s.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title"> 如何给WordPress网站添加欢迎引导页		</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/WordPress/">
+                                <span class="chip bg-color">WordPress</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/WordPress/" class="post-category">
+                                WordPress
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-03-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>由于WordPress的博客出身，许多WordPress网站主题看起来像是个单纯的博客。很多用户想要给自己的网站添加一个欢迎引导页面，将WordPress博客改造成CMS网站，或者将最重要的内容推荐给网站访问者。今天就给大家介绍一下，如何给WordPress网站添加静态欢迎引导页面。</p>
+<h2 id="方法1：利用WordPress的静态页面功能"><a href="#方法1：利用WordPress的静态页面功能" class="headerlink" title="方法1：利用WordPress的静态页面功能"></a>方法1：利用WordPress的静态页面功能</h2><p>在WordPress后台，通过【页面】-&gt;【新建页面】，添加两个新页面，分别命名为『首页』和『博客』。</p>
+<p>然后在后台的【设置】-&gt;【阅读设置】中，修改【首页显示】选项，将主页和文章页，分别设置为刚刚创建的『首页』和『博客』页面。</p>
+<p><img src="https://tva1.sinaimg.cn/large/005BYqpggy1g104md0k65j30ci075jrf.jpg" alt="如何给WordPress网站添加欢迎引导页"></p>
+<p>这样，你就可以在『首页』中随意设置欢迎页面的内容了，添加图片，修改文字等。</p>
+<h2 id="方法2：给WordPress添加html静态引导页面"><a href="#方法2：给WordPress添加html静态引导页面" class="headerlink" title="方法2：给WordPress添加html静态引导页面"></a>方法2：给WordPress添加html静态引导页面</h2><p>上面的方法1，简单实用。许多WordPress主题设计师利用这个办法，设计出了许多漂亮的CMS风格的WordPress主题。问题在于，如果我使用的WordPress主题，已经利用上述方法做出了漂亮的首页，但我还需要再添加一个网站引导页，该怎么办呢？</p>
+<p>对于别的常用网站程序，比如 dedecms 等，我们只要在程序根目录添加一个 index.html 引导页文件，并将优先级设置为高于 index.php 文件就可以了。但是这招对于WordPress无效。因为 WordPress 会一直调用网站根目录下优先权最高的文件，如果存在 index.html 且优先级高于 index.php ，会形成死循环，无法显示 WordPress 网站内容。</p>
+<p>在这种情况下，我们有两种办法可以选择：第一，将WordPress网站整体转移到子目录下，然后在根目录添加 index.html 文件作为引导页；不过这会影响网站结构，并且不利于SEO，这里我们暂时不做介绍。第二，修改WordPress程序；这个办法稍微麻烦一些，并且要求你使用的服务器支持伪静态（mod_rewrite模块），分为以下四步：</p>
+<h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p>在WordPress管理后台，找到【设置】-&gt;【固定链接（或者永久链接）】，修改默认的链接结构。这里只要确认不是默认链接结构就可以。</p>
+<p><img src="https://tva1.sinaimg.cn/large/005BYqpggy1g104md1ho8j30kr0d23z8.jpg" alt="如何给WordPress网站添加欢迎引导页"></p>
+<h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><p> WordPress会自动在程序根目录下生成 .htaccess文件。如果你用的服务器不会自动生成 .htaccess 文件，你可以手动建立一个空白文本文件，命名为 .htaccess 。如果你用的主机空间根本不支持，那建议你更换一个更专业的WordPress主机。</p>
+<p>需要注意的是，<strong>以上和以下的代码</strong></p>
+<pre><code># BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+# END WordPress
+</code></pre><p><strong>中，请务必都使用小写字母，因为这些代码都是大小写敏感的，如果不一致会无法生效。</strong>在以上代码后面，手动添加以下三行代码，保证 index.html 文件的优先级高于 index.php 文件：</p>
+<pre><code>&lt;IfModule dir_module&gt;
+DirectoryIndex index.html index.php
+&lt;/IfModule&gt;
+</code></pre><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3><p>在 WordPress 目录下，找到 wp-incudes/rewrite.php 文件，找到下面这一行：</p>
+<pre><code>var $index = &#39;index.php&#39;;
+</code></pre><p>将其修改为：</p>
+<pre><code>var $index = &#39;home.php&#39;;
+</code></pre><p>这一部，是将WordPress系统的首页改名为 home.php 。</p>
+<h3 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h3><p> 最后，将 WordPress 目录下首页的 index.php 文件复制一份，将名字修改为 home.php 。<em>注意，这里是复制一份，不要直接修改文件名哦</em>。</p>
+<p>这样，问题就解决了。你可以创建自己的引导页，将其命名为 index.html ，然后引导页中指向网站的链接，指向 home.php 文件。引导页和WordPress都可以正常工作。WordPress内部链接不变，只是首页变成了 home.php 文件。</p>
+<p>这个方案是其他WordPress网友研究出来的，我在<a href="https://www.congblog.cn/734.html" target="_blank" rel="noopener">这里</a>和<a href="http://www.qinghuo.net/mywenzheng/1498.html" target="_blank" rel="noopener">这里</a>看到的。这个方案相对来说是比较简单的，因为不影响WordPress内部链接，又可以直接利用网上许多现成的引导页，很适合网友使用。不过遗憾的是，我测试的结果是，该方案仅适用于WordPress 3.5之前的版本。在WordPress 3.6之后，似乎失效了。</p>
+<h2 id="方法3：使用WordPress引导插件"><a href="#方法3：使用WordPress引导插件" class="headerlink" title="方法3：使用WordPress引导插件"></a>方法3：使用WordPress引导插件</h2><p>第2个办法虽好，但无法在新版本中继续使用，非常遗憾。继续使用旧版本的WordPress，可能会给你的网站带来安全威胁，这是我们我们无法接受的。</p>
+<p>最后，我们求助于WordPress社区，这是WordPress之所以强大的力量源泉。许多狂热WordPress爱好者开发出了很多插件，来扩展WordPress的功能。在这里，我们找到了一个合适WordPress欢迎引导页面插件，<a href="https://wordpress.org/plugins/wp-splash-page/" target="_blank" rel="noopener">WP Splash Page插件</a>。此外还有一个界面类似，名字不同的插件叫做<a href="https://wordpress.org/plugins/preloading/" target="_blank" rel="noopener">Preloading</a>，可作为备用。</p>
+<p>在WordPress的管理后台，下载WP Splash Page插件，安装并激活该插件后，我们可以在【设置】-&gt;【WP Splash Page】中设置一些相关选项：</p>
+<p><img src="https://tva1.sinaimg.cn/large/005BYqpggy1g104mczzwhj30e00aomxn.jpg" alt="如何给WordPress网站添加欢迎引导页"></p>
+<p>这个插件中可以设置引导页的页面标题、标题、内容、继续访问按钮上的文字，以及使用的颜色，背景图片和北京色彩等。你还可以使用视频作为引导页内容，在这里可以设置视频的宽度和高度，以及是否自动播放等。</p>
+<p>此外，这个插件还包括一些额外的选项，比如验证访问者的年龄（按照相关法律规定，某些内容需要18岁以上方可访问），比如需要访问者同意网站使用协议等。这些都可以进行设置。</p>
+<p>WP Splash Page插件使用简单，方便，不需要任何编程基础，也不需要修改文字。稍微有点遗憾的是，默认模板和配色方案过于简陋。不过只要你花点心思，改变一下默认的配色方案，或者修改一下模板的CSS代码，就可以用他来作出一个更加漂亮的引导页面。</p>
+<p>引导页面仅适用于某些特殊的场合，如果使用不当会给用户带来不太友好的访问体验，建议用户在使用的时候慎重对待。不过，如何给WordPress网站定做一个欢迎引导页面，是个非常有趣的话题。相信不少读者还有其他的奇思妙想，可以做的比我们更好。如果你有更好的做法或者建议，请别忘了留言给我们哦。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://windxx.com" rel="external nofollow noreferrer">风子</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://windxx.com/wordpress-yindaoye.html">https://windxx.com/wordpress-yindaoye.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://windxx.com" target="_blank">风子</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/WordPress/">
+                                    <span class="chip bg-color">WordPress</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'a7e44444fcd19d1eadac',
+        clientSecret: '20f9821503e332786c4c8132d36e0a77a7c07c84',
+        repo: '',
+        owner: 'windxxcom',
+        admin: "windxxcom",
+        id: '2018-03-11T22-55-55',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/wordpress-zidingyiziduanmianban.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.iohttps://tva1.sinaimg.cn/large/007oPOSbly1g1122lkk4wj30hs0brabc.jpg" class="responsive-img" alt=" WordPress 创建自定义字段面板		">
+                        
+                        <span class="card-title"> WordPress 创建自定义字段面板		</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            但是对于自定义字段的时候，在后台添加的使用通过那个面板添加十分不方便，比如你要使用自定义字段来实现seo功能，那么你每次都需要重复输入字段名称：title\keywords\description。
+今天这篇文章，我们将讲解为自定义字段添加
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-03-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/WordPress/" class="post-category">
+                                    WordPress
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/WordPress/">
+                        <span class="chip bg-color">WordPress</span>
+                    </a>
+                    
+                    <a href="/tags/自定义字段/">
+                        <span class="chip bg-color">自定义字段</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/wordpress-in-category.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.iohttps://tva1.sinaimg.cn/large/007oPOSbly1g1122lw6hej30hs0blgna.jpg" class="responsive-img" alt=" WordPress判断文章所属分类函数in_category，实现文章页自定义 ">
+                        
+                        <span class="card-title"> WordPress判断文章所属分类函数in_category，实现文章页自定义 </span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            最近自己在修改一个采用Wordpress程序的博客的时候需要用到一个特殊的功能：我需要判断这篇文章是属于哪些分类，如果属于我设定的分类下的文章，则输出一个DIV内容。按道理说实现这个功能应该不算太难，因为印象中wordpress有相关的函数
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-03-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/WordPress/" class="post-category">
+                                    WordPress
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/WordPress/">
+                        <span class="chip bg-color">WordPress</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #229fe8;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="28285910"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#229fe8'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://windxx.com" target="_blank">风子</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:ez@windxx.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

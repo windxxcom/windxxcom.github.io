@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风之流年</title>
+  
+  <subtitle>被风吹散的时光</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://windxx.com/"/>
+  <updated>2019-03-31T05:29:11.230Z</updated>
+  <id>https://windxx.com/</id>
+  
+  <author>
+    <name>风子</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> Wordpress升级5.1.1后回复评论跳转问题 </title>
+    <link href="https://windxx.com/wordpress-5-1-1-comment-ajax.html"/>
+    <id>https://windxx.com/wordpress-5-1-1-comment-ajax.html</id>
+    <published>2019-03-28T11:39:10.000Z</published>
+    <updated>2019-03-31T05:29:11.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原文地址：&lt;a href=&quot;https://zhang.ge/5147.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;解决升级Wordpress
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="Wordpress" scheme="https://windxx.com/tags/Wordpress/"/>
+    
+      <category term="Ajax" scheme="https://windxx.com/tags/Ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 把博客从Wordpress迁移到hexo </title>
+    <link href="https://windxx.com/Wordpress-for-hexo.html"/>
+    <id>https://windxx.com/Wordpress-for-hexo.html</id>
+    <published>2019-03-13T09:51:36.000Z</published>
+    <updated>2019-03-13T09:54:48.737Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;博客内容很少，写东西也很少，感觉用Wordpress有点浪费，于是迁移到了github上。&lt;/p&gt;
+&lt;p&gt;搭建Github+Hexo的教程网上很多，就不重复写了，这次主要遇到的一个问题就是，新建的仓库一定要填写为&lt;code&gt;用户名.github.io&lt;/code&gt;，之前看教
+        
+      
+    
+    </summary>
+    
+      <category term="Nginx" scheme="https://windxx.com/categories/Nginx/"/>
+    
+    
+      <category term="Wordpress" scheme="https://windxx.com/tags/Wordpress/"/>
+    
+      <category term="hexo" scheme="https://windxx.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 记一次重装python后firewalld无法启动的记录 </title>
+    <link href="https://windxx.com/python-firewalld-failed.html"/>
+    <id>https://windxx.com/python-firewalld-failed.html</id>
+    <published>2019-03-12T10:39:20.000Z</published>
+    <updated>2019-03-28T12:18:17.030Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本人不懂linux什么的，但是又喜欢鼓捣，安装python3.6后，把系统自带的python2.7.5鼓捣出了点问题，因为没有修复的能力，选择了卸载重装。&lt;/p&gt;
+&lt;h2 id=&quot;卸载重装python2-7-5&quot;&gt;&lt;a href=&quot;#卸载重装python2-7-5&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://windxx.com/categories/Linux/"/>
+    
+    
+      <category term="Python" scheme="https://windxx.com/tags/Python/"/>
+    
+      <category term="Centos" scheme="https://windxx.com/tags/Centos/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 利用Cloudflare把网站IP换成1.1.1.1/1.0.0.1 </title>
+    <link href="https://windxx.com/ip-1-0-0-1.html"/>
+    <id>https://windxx.com/ip-1-0-0-1.html</id>
+    <published>2018-10-26T03:54:21.000Z</published>
+    <updated>2020-02-22T11:49:47.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;近日，Cloudflare&lt;a href=&quot;https://labs.apnic.net/?p=1127&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="https://windxx.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title> Wordpress优化文章图片属性并使用lazyload延迟加载 </title>
+    <link href="https://windxx.com/wordpress-image-auto-alt-lazyload.html"/>
+    <id>https://windxx.com/wordpress-image-auto-alt-lazyload.html</id>
+    <published>2018-10-09T07:07:58.000Z</published>
+    <updated>2019-03-12T10:52:14.400Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;优化Wordpress图片结构&quot;&gt;&lt;a href=&quot;#优化Wordpress图片结构&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title> 注册Google账号提示“此号码不能用于验证”的解决办法 </title>
+    <link href="https://windxx.com/google-register-phone-number-error.html"/>
+    <id>https://windxx.com/google-register-phone-number-error.html</id>
+    <published>2018-09-28T10:01:40.000Z</published>
+    <updated>2020-02-22T11:49:47.322Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1、&quot;&gt;&lt;a href=&quot;#1、&quot; class=&quot;headerlink&quot; title=&quot;1、&quot;&gt;&lt;/a&gt;1、&lt;/h2&gt;&lt;p&gt;下载个蓝灯开代理访问（下载后直接安装运行即可）。&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="https://windxx.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="Google" scheme="https://windxx.com/tags/Google/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress最新版完全禁用JSON REST API输出站点信息 </title>
+    <link href="https://windxx.com/wordpress-close-json-rest-api.html"/>
+    <id>https://windxx.com/wordpress-close-json-rest-api.html</id>
+    <published>2018-07-06T06:42:47.000Z</published>
+    <updated>2019-03-12T10:47:57.988Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;WordPress 从 4.4 版本开始新增的 &lt;code&gt;JSON REST API&lt;/code&gt; 功能，通过这个 REST API 可以很轻松的获取网站的数据，可应用于其他网站、手机 APP
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title> 免插件为 WordPress 添加 XML 网站地图 </title>
+    <link href="https://windxx.com/wordpress-add-xml-sitemap.html"/>
+    <id>https://windxx.com/wordpress-add-xml-sitemap.html</id>
+    <published>2018-04-10T11:47:05.000Z</published>
+    <updated>2020-04-16T13:03:30.057Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;将下列代码保存为 &lt;code&gt;sitemap.php&lt;/code&gt; 放在网站&lt;strong&gt;根目录&lt;/strong&gt;，这时候可以试试打开你的 &lt;code&gt;博客主页/sitemap.php&lt;/code&gt; 看看是否添加成功。&lt;/p&gt;
+&lt;pre class=&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+      <category term="SEO" scheme="https://windxx.com/tags/SEO/"/>
+    
+      <category term="Sitemap" scheme="https://windxx.com/tags/Sitemap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> Python3下的一个类-直接用数据库发布WordPress博文		</title>
+    <link href="https://windxx.com/python3-class-mysql-wordpress.html"/>
+    <id>https://windxx.com/python3-class-mysql-wordpress.html</id>
+    <published>2018-03-12T04:28:46.000Z</published>
+    <updated>2019-03-12T10:39:56.285Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://windxx.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://windxx.com/tags/Python/"/>
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宝塔面板重装系统后恢复数据库</title>
+    <link href="https://windxx.com/bt-reinstall-system-restore-database.html"/>
+    <id>https://windxx.com/bt-reinstall-system-restore-database.html</id>
+    <published>2018-03-12T04:13:44.000Z</published>
+    <updated>2020-02-22T11:49:47.322Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文适用于Linux下，系统盘和数据盘分开且数据盘数据没有丢失的情况。 最近遇到了一次系统出问题，一直进入维护模式无法正常使用，发工单询问，无解，只能重装系统，还好系统盘和数据盘是分开的。
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://windxx.com/categories/Linux/"/>
+    
+    
+      <category term="宝塔面板" scheme="https://windxx.com/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/"/>
+    
+      <category term="数据库" scheme="https://windxx.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> PHP：安卓、IOS、PC端分别显示随机内容		</title>
+    <link href="https://windxx.com/php-android-ios-pc-ad.html"/>
+    <id>https://windxx.com/php-android-ios-pc-ad.html</id>
+    <published>2018-03-12T03:56:24.000Z</published>
+    <updated>2019-03-12T10:39:07.489Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-PHP&quot;&gt;&lt;code class=&quot;language-PHP&quot;&gt;&lt;?php
+$ios = array(
+&#39;IOS-广告代码_1&#39;,
+&#39;IOS-广告代码_2&#39;,
+&#39;IOS-广告代码_3&#39;,
+); //广告代码随机数组
+$az =
+        
+      
+    
+    </summary>
+    
+      <category term="PHP" scheme="https://windxx.com/categories/PHP/"/>
+    
+    
+      <category term="广告" scheme="https://windxx.com/tags/%E5%B9%BF%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress: 后台添加显示用户注册时间和登录IP		</title>
+    <link href="https://windxx.com/wordpress-add-user-time-ip.html"/>
+    <id>https://windxx.com/wordpress-add-user-time-ip.html</id>
+    <published>2018-03-12T03:50:10.000Z</published>
+    <updated>2020-02-22T11:49:47.322Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;前言：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用WordPress 做网站，如果需要做备案评审的话，还是有许多地方要改的，根据评审要求(挺多的 ╮(╯▽╰)╭~) 做相应的修改。&lt;/p&gt;
+&lt;p&gt;比如：在后台需要做个显示 新用户注册时间
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress默认图片加水印后缀		</title>
+    <link href="https://windxx.com/wordpress-image-add-suffix.html"/>
+    <id>https://windxx.com/wordpress-image-add-suffix.html</id>
+    <published>2018-03-12T03:43:02.000Z</published>
+    <updated>2019-03-12T10:50:11.181Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一般用七牛、又拍云、阿里OSS等第三方图片储存时会用到&lt;/p&gt;
+&lt;p&gt;将下列代码加入到 &lt;strong&gt;functions.php&lt;/strong&gt; 文件中&lt;/p&gt;
+&lt;pre class=&quot; language-php&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+      <category term="图片" scheme="https://windxx.com/tags/%E5%9B%BE%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 关闭WordPress新用户注册邮件通知方法		</title>
+    <link href="https://windxx.com/wordpress-close-new-user-mail.html"/>
+    <id>https://windxx.com/wordpress-close-new-user-mail.html</id>
+    <published>2018-03-12T03:34:19.000Z</published>
+    <updated>2019-03-12T10:48:18.805Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;wordpress博客每次有新用户注册都会给我们管理邮箱发一邮件告诉你有新用户注册了，那么如果我们不想接受要如何取消呢，下面我来介绍关闭wordpress新用户注册邮件通知具体方法。&lt;/p&gt;
+&lt;p&gt;打开
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+      <category term="邮件" scheme="https://windxx.com/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress 不同分类显示不同内容（广告）		</title>
+    <link href="https://windxx.com/wordpress-custom-single-ad.html"/>
+    <id>https://windxx.com/wordpress-custom-single-ad.html</id>
+    <published>2018-03-12T03:30:55.000Z</published>
+    <updated>2019-03-12T10:48:44.599Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;WordPress 不同分类显示不同内容（广告），比如多本小说站，一般一个分类为一本小说，为了了解每一本小说的收入效果，需要为不同的分类（小说）添加不同的广告，这个不同的广告不一定是格式大小不同，而是广告代号不同。&lt;/p&gt;
+&lt;p&gt;和&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="广告" scheme="https://windxx.com/tags/%E5%B9%BF%E5%91%8A/"/>
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress 创建自定义字段面板		</title>
+    <link href="https://windxx.com/wordpress-zidingyiziduanmianban.html"/>
+    <id>https://windxx.com/wordpress-zidingyiziduanmianban.html</id>
+    <published>2018-03-11T15:04:08.000Z</published>
+    <updated>2020-02-22T11:49:47.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;但是对于自定义字段的时候，在后台添加的使用通过那个面板添加十分不方便，比如你要使用自定义字段来实现seo功能，那么你每次都需要重复输入字段名称：title\keywords\description。&lt;/p&gt;
+&lt;p&gt;今天这篇文章，我们将讲解为自定义字段添加一个固定的面板，这样
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+      <category term="自定义字段" scheme="https://windxx.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> 如何给WordPress网站添加欢迎引导页		</title>
+    <link href="https://windxx.com/wordpress-yindaoye.html"/>
+    <id>https://windxx.com/wordpress-yindaoye.html</id>
+    <published>2018-03-11T14:55:55.000Z</published>
+    <updated>2020-02-22T11:49:47.323Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;由于WordPress的博客出身，许多WordPress网站主题看起来像是个单纯的博客。很多用户想要给自己的网站添加一个欢迎引导页面，将WordPress博客改造成CMS网站，或者将最重要的内容推荐给网站访问者。今天就给大家介绍一下，如何给WordPress网站添加静态欢迎
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress判断文章所属分类函数in_category，实现文章页自定义 </title>
+    <link href="https://windxx.com/wordpress-in-category.html"/>
+    <id>https://windxx.com/wordpress-in-category.html</id>
+    <published>2018-03-11T10:28:20.000Z</published>
+    <updated>2019-03-12T10:52:48.957Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近自己在修改一个采用Wordpress程序的博客的时候需要用到一个特殊的功能：我需要判断这篇文章是属于哪些分类，如果属于我设定的分类下的文章，则输出一个DIV内容。按道理说实现这个功能应该不算太难，因为印象中wordpress有相关的函数。简单查阅了一些资料后发现is_c
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress保护后台登录地址 </title>
+    <link href="https://windxx.com/wordpress-wp-admin.html"/>
+    <id>https://windxx.com/wordpress-wp-admin.html</id>
+    <published>2018-03-11T05:31:17.000Z</published>
+    <updated>2019-03-12T10:57:10.158Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这几天被暴力破解搞的十分烦躁，不知道对方使用了什么黑科技，禁止ip仍然可以暴力登陆。&lt;/p&gt;
+&lt;p&gt;可是我又不想直接删登陆文件或者修改文件，记得以前记录过相关内容（WordPress
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
+    <title> WordPress wp-cron.php造成服务器CPU超标解决办法		</title>
+    <link href="https://windxx.com/wordpress-wp-cron-php-cpu.html"/>
+    <id>https://windxx.com/wordpress-wp-cron-php-cpu.html</id>
+    <published>2018-03-11T05:28:38.000Z</published>
+    <updated>2019-03-12T10:57:29.120Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;只要禁用WP-Cron就行了，编辑wp-config.php，加入一下一行:&lt;/p&gt;
+&lt;pre class=&quot; language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
+    
+    
+      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
+    
+      <category term="CPU" scheme="https://windxx.com/tags/CPU/"/>
+    
+  </entry>
+  
+</feed>
