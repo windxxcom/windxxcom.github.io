@@ -416,102 +416,101 @@
 <p>找到 <strong>wp-includes/functions.php</strong> 这个文件 编辑打开，在文本末尾添加 即可</p>
 </blockquote>
 <p>代码如下（网上找的，可用）：</p>
-<pre class=" language-PHP"><code class="language-PHP">//// --------------- 华丽的分割线 ------------- ////
+<pre><code>//// --------------- 华丽的分割线 ------------- ////
 
 /**
 * add the register record.
 */
 function get_client_ip() {
-    if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
-    $ip = getenv("HTTP_CLIENT_IP");
-    else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"),
-    "unknown"))
-    $ip = getenv("HTTP_X_FORWARDED_FOR");
-    else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
-    $ip = getenv("REMOTE_ADDR");
-    else if (isset ($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR']
-    && strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
-    $ip = $_SERVER['REMOTE_ADDR'];
+    if (getenv(&quot;HTTP_CLIENT_IP&quot;) &amp;&amp; strcasecmp(getenv(&quot;HTTP_CLIENT_IP&quot;), &quot;unknown&quot;))
+    $ip = getenv(&quot;HTTP_CLIENT_IP&quot;);
+    else if (getenv(&quot;HTTP_X_FORWARDED_FOR&quot;) &amp;&amp; strcasecmp(getenv(&quot;HTTP_X_FORWARDED_FOR&quot;),
+    &quot;unknown&quot;))
+    $ip = getenv(&quot;HTTP_X_FORWARDED_FOR&quot;);
+    else if (getenv(&quot;REMOTE_ADDR&quot;) &amp;&amp; strcasecmp(getenv(&quot;REMOTE_ADDR&quot;), &quot;unknown&quot;))
+    $ip = getenv(&quot;REMOTE_ADDR&quot;);
+    else if (isset ($_SERVER[&#39;REMOTE_ADDR&#39;]) &amp;&amp; $_SERVER[&#39;REMOTE_ADDR&#39;]
+    &amp;&amp; strcasecmp($_SERVER[&#39;REMOTE_ADDR&#39;], &quot;unknown&quot;))
+    $ip = $_SERVER[&#39;REMOTE_ADDR&#39;];
     else
-    $ip = "unknown";
+    $ip = &quot;unknown&quot;;
     return ($ip);
 }
 // 创建一个新字段存储用户注册时的IP地址
-add_action('user_register', 'log_ip');
+add_action(&#39;user_register&#39;, &#39;log_ip&#39;);
 function log_ip($user_id){
     $ip = get_client_ip();
-    update_user_meta($user_id, 'signup_ip', $ip);
+    update_user_meta($user_id, &#39;signup_ip&#39;, $ip);
 }
 // 创建新字段存储用户登录时间和登录IP
-add_action( 'wp_login', 'insert_last_login' );
+add_action( &#39;wp_login&#39;, &#39;insert_last_login&#39; );
 function insert_last_login( $login ) {
     global $user_id;
     $user = get_userdatabylogin( $login );
-    update_user_meta( $user->ID, 'last_login', current_time( 'mysql' ) );
+    update_user_meta( $user-&gt;ID, &#39;last_login&#39;, current_time( &#39;mysql&#39; ) );
     $last_login_ip = get_client_ip();
-    update_user_meta( $user->ID, 'last_login_ip', $last_login_ip);
+    update_user_meta( $user-&gt;ID, &#39;last_login_ip&#39;, $last_login_ip);
 }
 // 添加额外的栏目
-add_filter('manage_users_columns', 'add_user_additional_column');
+add_filter(&#39;manage_users_columns&#39;, &#39;add_user_additional_column&#39;);
 function add_user_additional_column($columns) {
-    $columns['user_nickname'] = '昵称';
-    $columns['user_url'] = '网站';
-    $columns['reg_time'] = '注册时间';
-    $columns['signup_ip'] = '注册IP';
-    $columns['last_login'] = '上次登录';
+    $columns[&#39;user_nickname&#39;] = &#39;昵称&#39;;
+    $columns[&#39;user_url&#39;] = &#39;网站&#39;;
+    $columns[&#39;reg_time&#39;] = &#39;注册时间&#39;;
+    $columns[&#39;signup_ip&#39;] = &#39;注册IP&#39;;
+    $columns[&#39;last_login&#39;] = &#39;上次登录&#39;;
     // 打算将注册IP和注册时间、登录IP和登录时间合并显示，所以我注销下面两行
-    /*$columns['signup_ip'] = '注册IP';*/
-    $columns['last_login_ip'] = '登录IP';
-    unset($columns['name']);//移除“姓名”这一栏，如果你需要保留，删除这行即可
+    /*$columns[&#39;signup_ip&#39;] = &#39;注册IP&#39;;*/
+    $columns[&#39;last_login_ip&#39;] = &#39;登录IP&#39;;
+    unset($columns[&#39;name&#39;]);//移除“姓名”这一栏，如果你需要保留，删除这行即可
     return $columns;
 }
 //显示栏目的内容
-add_action('manage_users_custom_column', 'show_user_additional_column_content', 10, 3);
+add_action(&#39;manage_users_custom_column&#39;, &#39;show_user_additional_column_content&#39;, 10, 3);
 function show_user_additional_column_content($value, $column_name, $user_id) {
     $user = get_userdata( $user_id );
     // 输出“昵称”
-    if ( 'user_nickname' == $column_name )
-    return $user->nickname;
+    if ( &#39;user_nickname&#39; == $column_name )
+    return $user-&gt;nickname;
     // 输出用户的网站
-    if ( 'user_url' == $column_name )
-    return '<a href="'.$user->user_url.'" target="_blank">'.$user->user_url.'</a>';
+    if ( &#39;user_url&#39; == $column_name )
+    return &#39;&lt;a href=&quot;&#39;.$user-&gt;user_url.&#39;&quot; target=&quot;_blank&quot;&gt;&#39;.$user-&gt;user_url.&#39;&lt;/a&gt;&#39;;
     // 输出注册时间和注册IP
-    if('reg_time' == $column_name ){
-        return get_date_from_gmt($user->user_registered) ;
+    if(&#39;reg_time&#39; == $column_name ){
+        return get_date_from_gmt($user-&gt;user_registered) ;
     }
     // 输出注册时间和注册IP
-    if('signup' == $column_name ){
-        return get_user_meta( $user->ID, 'signup_ip', true);
+    if(&#39;signup&#39; == $column_name ){
+        return get_user_meta( $user-&gt;ID, &#39;signup_ip&#39;, true);
     }
     // 输出最近登录时间和登录IP
-    if ( 'last_login' == $column_name && $user->last_login ){
-        return get_user_meta( $user->ID, 'last_login', ture );
+    if ( &#39;last_login&#39; == $column_name &amp;&amp; $user-&gt;last_login ){
+        return get_user_meta( $user-&gt;ID, &#39;last_login&#39;, ture );
     }
 
     // 输出最近登录时间和登录IP
-    if ( 'last_login_ip' == $column_name ){
-        return get_user_meta( $user->ID, 'last_login_ip', ture );
+    if ( &#39;last_login_ip&#39; == $column_name ){
+        return get_user_meta( $user-&gt;ID, &#39;last_login_ip&#39;, ture );
     }
     return $value;
 }
 
 // 默认按照注册时间排序
-add_filter( "manage_users_sortable_columns", 'cmhello_users_sortable_columns' );
+add_filter( &quot;manage_users_sortable_columns&quot;, &#39;cmhello_users_sortable_columns&#39; );
 function cmhello_users_sortable_columns($sortable_columns){
-    $sortable_columns['reg_time'] = 'reg_time';
+    $sortable_columns[&#39;reg_time&#39;] = &#39;reg_time&#39;;
     return $sortable_columns;
 }
-add_action( 'pre_user_query', 'cmhello_users_search_order' );
+add_action( &#39;pre_user_query&#39;, &#39;cmhello_users_search_order&#39; );
 function cmhello_users_search_order($obj){
-    if(!isset($_REQUEST['orderby']) || $_REQUEST['orderby']=='reg_time' ){
-        if( !in_array($_REQUEST['order'],array('asc','desc')) ){
-            $_REQUEST['order'] = 'desc';
+    if(!isset($_REQUEST[&#39;orderby&#39;]) || $_REQUEST[&#39;orderby&#39;]==&#39;reg_time&#39; ){
+        if( !in_array($_REQUEST[&#39;order&#39;],array(&#39;asc&#39;,&#39;desc&#39;)) ){
+            $_REQUEST[&#39;order&#39;] = &#39;desc&#39;;
         }
-        $obj->query_orderby = "ORDER BY user_registered ".$_REQUEST['order']."";
+        $obj-&gt;query_orderby = &quot;ORDER BY user_registered &quot;.$_REQUEST[&#39;order&#39;].&quot;&quot;;
     }
 }
-</code></pre>
-<p>(温馨提示：尽量自己手写这段代码，不要复制，程序员不是靠复制代码来提升技术的 ( ╯▽╰)~)</p>
+</code></pre><p>(温馨提示：尽量自己手写这段代码，不要复制，程序员不是靠复制代码来提升技术的 ( ╯▽╰)~)</p>
 <p>来个效果图：</p>
 <p><a href="https://windxx.com/wp-content/uploads/2018/03/15208262819131.png"><img src="https://tva1.sinaimg.cn/large/005BYqpggy1g104md3khvj31ck0d00ta.jpg" alt="WordPress: 后台添加显示用户注册时间和登录IP"></a></p>
 <p>另附一些 可能需要用的插件：</p>
@@ -930,9 +929,13 @@ function cmhello_users_search_order($obj){
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-
-
+                            &lt;?php
+$ios = array(
+    &#39;IOS-广告代码_1&#39;,
+    &#39;IOS-广告代码_2&#39;,
+    &#39;IOS-广告代码_3&#39;,
+); //广告代码随机数组
+$az =
                         
                     </div>
                     <div class="publish-info">

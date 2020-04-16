@@ -656,16 +656,9 @@ Wordpress默认图片属性
                             <div class="summary block-with-text">
                                 
                                     将下列代码保存为 sitemap.php 放在网站根目录，这时候可以试试打开你的 博客主页/sitemap.php 看看是否添加成功。
-
-  
-      
-      
-      daily
-      1.0
-  
-
-  
-     
+&lt;?php
+require('./wp-blog-header.php');
+header("Co
                                 
                             </div>
                             <div class="publish-info">
@@ -859,9 +852,13 @@ Wordpress默认图片属性
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    
-
-
+                                    &lt;?php
+$ios = array(
+    &#39;IOS-广告代码_1&#39;,
+    &#39;IOS-广告代码_2&#39;,
+    &#39;IOS-广告代码_3&#39;,
+); //广告代码随机数组
+$az =
                                 
                             </div>
                             <div class="publish-info">

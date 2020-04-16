@@ -408,35 +408,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-PHP"><code class="language-PHP"><?php
+                <pre><code>&lt;?php
 $ios = array(
-'IOS-广告代码_1',
-'IOS-广告代码_2',
-'IOS-广告代码_3',
+    &#39;IOS-广告代码_1&#39;,
+    &#39;IOS-广告代码_2&#39;,
+    &#39;IOS-广告代码_3&#39;,
 ); //广告代码随机数组
 $az = array(
-'AZ-广告代码_1',
-'AZ-广告代码_2',
-'AZ-广告代码_3',
+    &#39;AZ-广告代码_1&#39;,
+    &#39;AZ-广告代码_2&#39;,
+    &#39;AZ-广告代码_3&#39;,
 ); //广告代码随机数组
 $pc = array(
-'PC-广告代码_1',
-'PC-广告代码_2',
-'PC-广告代码_3',
+    &#39;PC-广告代码_1&#39;,
+    &#39;PC-广告代码_2&#39;,
+    &#39;PC-广告代码_3&#39;,
 ); //广告代码随机数组
 $pc_rand = array_rand($pc); //获取随机数组的键
 $az_rand = array_rand($pc); //获取随机数组的键
 $ios_rand = array_rand($pc); //获取随机数组的键
-if(strpos($_SERVER['HTTP_USER_AGENT'], 'iPhone')||strpos($_SERVER['HTTP_USER_AGENT'], 'iPad')){
-echo $ios[$ios_rand];
-}else if(strpos($_SERVER['HTTP_USER_AGENT'], 'Android')){
-echo $az[$az_rand];
+if(strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;iPhone&#39;)||strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;iPad&#39;)){
+    echo $ios[$ios_rand];
+}else if(strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;Android&#39;)){
+    echo $az[$az_rand];
 }else{
-echo $pc[$pc_rand];
+    echo $pc[$pc_rand];
 }
-?>
+?&gt;
 </code></pre>
-
             </div>
             <hr/>
 

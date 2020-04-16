@@ -49,7 +49,7 @@
     <link href="https://windxx.com/Wordpress-for-hexo.html"/>
     <id>https://windxx.com/Wordpress-for-hexo.html</id>
     <published>2019-03-13T09:51:36.000Z</published>
-    <updated>2019-03-13T09:54:48.737Z</updated>
+    <updated>2020-04-16T14:06:41.324Z</updated>
     
     <summary type="html">
     
@@ -205,7 +205,7 @@
     <link href="https://windxx.com/wordpress-add-xml-sitemap.html"/>
     <id>https://windxx.com/wordpress-add-xml-sitemap.html</id>
     <published>2018-04-10T11:47:05.000Z</published>
-    <updated>2020-04-16T13:03:30.057Z</updated>
+    <updated>2020-04-16T14:21:14.197Z</updated>
     
     <summary type="html">
     
@@ -292,7 +292,7 @@
     <link href="https://windxx.com/php-android-ios-pc-ad.html"/>
     <id>https://windxx.com/php-android-ios-pc-ad.html</id>
     <published>2018-03-12T03:56:24.000Z</published>
-    <updated>2019-03-12T10:39:07.489Z</updated>
+    <updated>2020-04-16T14:16:43.566Z</updated>
     
     <summary type="html">
     
@@ -300,13 +300,14 @@
       
         
         
-          &lt;pre class=&quot; language-PHP&quot;&gt;&lt;code class=&quot;language-PHP&quot;&gt;&lt;?php
+          &lt;pre&gt;&lt;code&gt;&amp;lt;?php
 $ios = array(
-&#39;IOS-广告代码_1&#39;,
-&#39;IOS-广告代码_2&#39;,
-&#39;IOS-广告代码_3&#39;,
+    &amp;#39;IOS-广告代码_1&amp;#39;,
+    &amp;#39;IOS-广告代码_2&amp;#39;,
+    &amp;#39;IOS-广告代码_3&amp;#39;,
 ); //广告代码随机数组
-$az =
+$az = array(
+
         
       
     
@@ -324,7 +325,7 @@ $az =
     <link href="https://windxx.com/wordpress-add-user-time-ip.html"/>
     <id>https://windxx.com/wordpress-add-user-time-ip.html</id>
     <published>2018-03-12T03:50:10.000Z</published>
-    <updated>2020-02-22T11:49:47.322Z</updated>
+    <updated>2020-04-16T14:17:53.198Z</updated>
     
     <summary type="html">
     
