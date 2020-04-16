@@ -408,34 +408,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>&lt;?php
-$ios = array(
-    &#39;IOS-广告代码_1&#39;,
-    &#39;IOS-广告代码_2&#39;,
-    &#39;IOS-广告代码_3&#39;,
-); //广告代码随机数组
-$az = array(
-    &#39;AZ-广告代码_1&#39;,
-    &#39;AZ-广告代码_2&#39;,
-    &#39;AZ-广告代码_3&#39;,
-); //广告代码随机数组
-$pc = array(
-    &#39;PC-广告代码_1&#39;,
-    &#39;PC-广告代码_2&#39;,
-    &#39;PC-广告代码_3&#39;,
-); //广告代码随机数组
-$pc_rand = array_rand($pc); //获取随机数组的键
-$az_rand = array_rand($pc); //获取随机数组的键
-$ios_rand = array_rand($pc); //获取随机数组的键
-if(strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;iPhone&#39;)||strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;iPad&#39;)){
-    echo $ios[$ios_rand];
-}else if(strpos($_SERVER[&#39;HTTP_USER_AGENT&#39;], &#39;Android&#39;)){
-    echo $az[$az_rand];
-}else{
-    echo $pc[$pc_rand];
-}
-?&gt;
+                <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$ios</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'IOS-广告代码_1'</span><span class="token punctuation">,</span>
+    <span class="token string">'IOS-广告代码_2'</span><span class="token punctuation">,</span>
+    <span class="token string">'IOS-广告代码_3'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//广告代码随机数组</span>
+<span class="token variable">$az</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'AZ-广告代码_1'</span><span class="token punctuation">,</span>
+    <span class="token string">'AZ-广告代码_2'</span><span class="token punctuation">,</span>
+    <span class="token string">'AZ-广告代码_3'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//广告代码随机数组</span>
+<span class="token variable">$pc</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span>
+    <span class="token string">'PC-广告代码_1'</span><span class="token punctuation">,</span>
+    <span class="token string">'PC-广告代码_2'</span><span class="token punctuation">,</span>
+    <span class="token string">'PC-广告代码_3'</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//广告代码随机数组</span>
+<span class="token variable">$pc_rand</span> <span class="token operator">=</span> <span class="token function">array_rand</span><span class="token punctuation">(</span><span class="token variable">$pc</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取随机数组的键</span>
+<span class="token variable">$az_rand</span> <span class="token operator">=</span> <span class="token function">array_rand</span><span class="token punctuation">(</span><span class="token variable">$pc</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取随机数组的键</span>
+<span class="token variable">$ios_rand</span> <span class="token operator">=</span> <span class="token function">array_rand</span><span class="token punctuation">(</span><span class="token variable">$pc</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//获取随机数组的键</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'HTTP_USER_AGENT'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'iPhone'</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'HTTP_USER_AGENT'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'iPad'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$ios</span><span class="token punctuation">[</span><span class="token variable">$ios_rand</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strpos</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'HTTP_USER_AGENT'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'Android'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$az</span><span class="token punctuation">[</span><span class="token variable">$az_rand</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+    <span class="token keyword">echo</span> <span class="token variable">$pc</span><span class="token punctuation">[</span><span class="token variable">$pc_rand</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
 </code></pre>
+
             </div>
             <hr/>
 
@@ -1042,58 +1043,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #229fe8;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="28285910"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#229fe8'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2014</span>
             <a href="https://windxx.com" target="_blank">风子</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>

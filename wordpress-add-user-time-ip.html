@@ -416,101 +416,102 @@
 <p>找到 <strong>wp-includes/functions.php</strong> 这个文件 编辑打开，在文本末尾添加 即可</p>
 </blockquote>
 <p>代码如下（网上找的，可用）：</p>
-<pre><code>//// --------------- 华丽的分割线 ------------- ////
+<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">//// --------------- 华丽的分割线 ------------- ////</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
 * add the register record.
-*/
-function get_client_ip() {
-    if (getenv(&quot;HTTP_CLIENT_IP&quot;) &amp;&amp; strcasecmp(getenv(&quot;HTTP_CLIENT_IP&quot;), &quot;unknown&quot;))
-    $ip = getenv(&quot;HTTP_CLIENT_IP&quot;);
-    else if (getenv(&quot;HTTP_X_FORWARDED_FOR&quot;) &amp;&amp; strcasecmp(getenv(&quot;HTTP_X_FORWARDED_FOR&quot;),
-    &quot;unknown&quot;))
-    $ip = getenv(&quot;HTTP_X_FORWARDED_FOR&quot;);
-    else if (getenv(&quot;REMOTE_ADDR&quot;) &amp;&amp; strcasecmp(getenv(&quot;REMOTE_ADDR&quot;), &quot;unknown&quot;))
-    $ip = getenv(&quot;REMOTE_ADDR&quot;);
-    else if (isset ($_SERVER[&#39;REMOTE_ADDR&#39;]) &amp;&amp; $_SERVER[&#39;REMOTE_ADDR&#39;]
-    &amp;&amp; strcasecmp($_SERVER[&#39;REMOTE_ADDR&#39;], &quot;unknown&quot;))
-    $ip = $_SERVER[&#39;REMOTE_ADDR&#39;];
-    else
-    $ip = &quot;unknown&quot;;
-    return ($ip);
-}
-// 创建一个新字段存储用户注册时的IP地址
-add_action(&#39;user_register&#39;, &#39;log_ip&#39;);
-function log_ip($user_id){
-    $ip = get_client_ip();
-    update_user_meta($user_id, &#39;signup_ip&#39;, $ip);
-}
-// 创建新字段存储用户登录时间和登录IP
-add_action( &#39;wp_login&#39;, &#39;insert_last_login&#39; );
-function insert_last_login( $login ) {
-    global $user_id;
-    $user = get_userdatabylogin( $login );
-    update_user_meta( $user-&gt;ID, &#39;last_login&#39;, current_time( &#39;mysql&#39; ) );
-    $last_login_ip = get_client_ip();
-    update_user_meta( $user-&gt;ID, &#39;last_login_ip&#39;, $last_login_ip);
-}
-// 添加额外的栏目
-add_filter(&#39;manage_users_columns&#39;, &#39;add_user_additional_column&#39;);
-function add_user_additional_column($columns) {
-    $columns[&#39;user_nickname&#39;] = &#39;昵称&#39;;
-    $columns[&#39;user_url&#39;] = &#39;网站&#39;;
-    $columns[&#39;reg_time&#39;] = &#39;注册时间&#39;;
-    $columns[&#39;signup_ip&#39;] = &#39;注册IP&#39;;
-    $columns[&#39;last_login&#39;] = &#39;上次登录&#39;;
-    // 打算将注册IP和注册时间、登录IP和登录时间合并显示，所以我注销下面两行
-    /*$columns[&#39;signup_ip&#39;] = &#39;注册IP&#39;;*/
-    $columns[&#39;last_login_ip&#39;] = &#39;登录IP&#39;;
-    unset($columns[&#39;name&#39;]);//移除“姓名”这一栏，如果你需要保留，删除这行即可
-    return $columns;
-}
-//显示栏目的内容
-add_action(&#39;manage_users_custom_column&#39;, &#39;show_user_additional_column_content&#39;, 10, 3);
-function show_user_additional_column_content($value, $column_name, $user_id) {
-    $user = get_userdata( $user_id );
-    // 输出“昵称”
-    if ( &#39;user_nickname&#39; == $column_name )
-    return $user-&gt;nickname;
-    // 输出用户的网站
-    if ( &#39;user_url&#39; == $column_name )
-    return &#39;&lt;a href=&quot;&#39;.$user-&gt;user_url.&#39;&quot; target=&quot;_blank&quot;&gt;&#39;.$user-&gt;user_url.&#39;&lt;/a&gt;&#39;;
-    // 输出注册时间和注册IP
-    if(&#39;reg_time&#39; == $column_name ){
-        return get_date_from_gmt($user-&gt;user_registered) ;
-    }
-    // 输出注册时间和注册IP
-    if(&#39;signup&#39; == $column_name ){
-        return get_user_meta( $user-&gt;ID, &#39;signup_ip&#39;, true);
-    }
-    // 输出最近登录时间和登录IP
-    if ( &#39;last_login&#39; == $column_name &amp;&amp; $user-&gt;last_login ){
-        return get_user_meta( $user-&gt;ID, &#39;last_login&#39;, ture );
-    }
+*/</span>
+<span class="token keyword">function</span> <span class="token function">get_client_ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_CLIENT_IP"</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">strcasecmp</span><span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_CLIENT_IP"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"unknown"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_CLIENT_IP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_X_FORWARDED_FOR"</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">strcasecmp</span><span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_X_FORWARDED_FOR"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string">"unknown"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HTTP_X_FORWARDED_FOR"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">strcasecmp</span><span class="token punctuation">(</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"unknown"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span> <span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span>
+    <span class="token operator">&amp;&amp;</span> <span class="token function">strcasecmp</span><span class="token punctuation">(</span><span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"unknown"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_SERVER</span><span class="token punctuation">[</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token string">"unknown"</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token variable">$ip</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 创建一个新字段存储用户注册时的IP地址</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span><span class="token string">'user_register'</span><span class="token punctuation">,</span> <span class="token string">'log_ip'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">log_ip</span><span class="token punctuation">(</span><span class="token variable">$user_id</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token function">get_client_ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">update_user_meta</span><span class="token punctuation">(</span><span class="token variable">$user_id</span><span class="token punctuation">,</span> <span class="token string">'signup_ip'</span><span class="token punctuation">,</span> <span class="token variable">$ip</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 创建新字段存储用户登录时间和登录IP</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string">'wp_login'</span><span class="token punctuation">,</span> <span class="token string">'insert_last_login'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">insert_last_login</span><span class="token punctuation">(</span> <span class="token variable">$login</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">global</span> <span class="token variable">$user_id</span><span class="token punctuation">;</span>
+    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">get_userdatabylogin</span><span class="token punctuation">(</span> <span class="token variable">$login</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">update_user_meta</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ID</span><span class="token punctuation">,</span> <span class="token string">'last_login'</span><span class="token punctuation">,</span> <span class="token function">current_time</span><span class="token punctuation">(</span> <span class="token string">'mysql'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$last_login_ip</span> <span class="token operator">=</span> <span class="token function">get_client_ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">update_user_meta</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ID</span><span class="token punctuation">,</span> <span class="token string">'last_login_ip'</span><span class="token punctuation">,</span> <span class="token variable">$last_login_ip</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 添加额外的栏目</span>
+<span class="token function">add_filter</span><span class="token punctuation">(</span><span class="token string">'manage_users_columns'</span><span class="token punctuation">,</span> <span class="token string">'add_user_additional_column'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">add_user_additional_column</span><span class="token punctuation">(</span><span class="token variable">$columns</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'user_nickname'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'昵称'</span><span class="token punctuation">;</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'user_url'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'网站'</span><span class="token punctuation">;</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'reg_time'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'注册时间'</span><span class="token punctuation">;</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'signup_ip'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'注册IP'</span><span class="token punctuation">;</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'last_login'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'上次登录'</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 打算将注册IP和注册时间、登录IP和登录时间合并显示，所以我注销下面两行</span>
+    <span class="token comment" spellcheck="true">/*$columns['signup_ip'] = '注册IP';*/</span>
+    <span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'last_login_ip'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'登录IP'</span><span class="token punctuation">;</span>
+    <span class="token function">unset</span><span class="token punctuation">(</span><span class="token variable">$columns</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//移除“姓名”这一栏，如果你需要保留，删除这行即可</span>
+    <span class="token keyword">return</span> <span class="token variable">$columns</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//显示栏目的内容</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span><span class="token string">'manage_users_custom_column'</span><span class="token punctuation">,</span> <span class="token string">'show_user_additional_column_content'</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">show_user_additional_column_content</span><span class="token punctuation">(</span><span class="token variable">$value</span><span class="token punctuation">,</span> <span class="token variable">$column_name</span><span class="token punctuation">,</span> <span class="token variable">$user_id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$user</span> <span class="token operator">=</span> <span class="token function">get_userdata</span><span class="token punctuation">(</span> <span class="token variable">$user_id</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 输出“昵称”</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">'user_nickname'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">nickname</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 输出用户的网站</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">'user_url'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">'&lt;a href="'</span><span class="token punctuation">.</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span>user_url<span class="token punctuation">.</span><span class="token string">'" target="_blank">'</span><span class="token punctuation">.</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">user_url</span><span class="token punctuation">.</span><span class="token string">'&lt;/a>'</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 输出注册时间和注册IP</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'reg_time'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">get_date_from_gmt</span><span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">user_registered</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 输出注册时间和注册IP</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token string">'signup'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">get_user_meta</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ID</span><span class="token punctuation">,</span> <span class="token string">'signup_ip'</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 输出最近登录时间和登录IP</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">'last_login'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">last_login</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">get_user_meta</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ID</span><span class="token punctuation">,</span> <span class="token string">'last_login'</span><span class="token punctuation">,</span> ture <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    // 输出最近登录时间和登录IP
-    if ( &#39;last_login_ip&#39; == $column_name ){
-        return get_user_meta( $user-&gt;ID, &#39;last_login_ip&#39;, ture );
-    }
-    return $value;
-}
+    <span class="token comment" spellcheck="true">// 输出最近登录时间和登录IP</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token string">'last_login_ip'</span> <span class="token operator">==</span> <span class="token variable">$column_name</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">get_user_meta</span><span class="token punctuation">(</span> <span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">ID</span><span class="token punctuation">,</span> <span class="token string">'last_login_ip'</span><span class="token punctuation">,</span> ture <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token variable">$value</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-// 默认按照注册时间排序
-add_filter( &quot;manage_users_sortable_columns&quot;, &#39;cmhello_users_sortable_columns&#39; );
-function cmhello_users_sortable_columns($sortable_columns){
-    $sortable_columns[&#39;reg_time&#39;] = &#39;reg_time&#39;;
-    return $sortable_columns;
-}
-add_action( &#39;pre_user_query&#39;, &#39;cmhello_users_search_order&#39; );
-function cmhello_users_search_order($obj){
-    if(!isset($_REQUEST[&#39;orderby&#39;]) || $_REQUEST[&#39;orderby&#39;]==&#39;reg_time&#39; ){
-        if( !in_array($_REQUEST[&#39;order&#39;],array(&#39;asc&#39;,&#39;desc&#39;)) ){
-            $_REQUEST[&#39;order&#39;] = &#39;desc&#39;;
-        }
-        $obj-&gt;query_orderby = &quot;ORDER BY user_registered &quot;.$_REQUEST[&#39;order&#39;].&quot;&quot;;
-    }
-}
-</code></pre><p>(温馨提示：尽量自己手写这段代码，不要复制，程序员不是靠复制代码来提升技术的 ( ╯▽╰)~)</p>
+<span class="token comment" spellcheck="true">// 默认按照注册时间排序</span>
+<span class="token function">add_filter</span><span class="token punctuation">(</span> <span class="token string">"manage_users_sortable_columns"</span><span class="token punctuation">,</span> <span class="token string">'cmhello_users_sortable_columns'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">cmhello_users_sortable_columns</span><span class="token punctuation">(</span><span class="token variable">$sortable_columns</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">$sortable_columns</span><span class="token punctuation">[</span><span class="token string">'reg_time'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'reg_time'</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token variable">$sortable_columns</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">add_action</span><span class="token punctuation">(</span> <span class="token string">'pre_user_query'</span><span class="token punctuation">,</span> <span class="token string">'cmhello_users_search_order'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">cmhello_users_search_order</span><span class="token punctuation">(</span><span class="token variable">$obj</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'orderby'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'orderby'</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token string">'reg_time'</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">!</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'order'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'asc'</span><span class="token punctuation">,</span><span class="token string">'desc'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'order'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'desc'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">query_orderby</span> <span class="token operator">=</span> <span class="token string">"ORDER BY user_registered "</span><span class="token punctuation">.</span><span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'order'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>(温馨提示：尽量自己手写这段代码，不要复制，程序员不是靠复制代码来提升技术的 ( ╯▽╰)~)</p>
 <p>来个效果图：</p>
 <p><a href="https://windxx.com/wp-content/uploads/2018/03/15208262819131.png"><img src="https://tva1.sinaimg.cn/large/005BYqpggy1g104md3khvj31ck0d00ta.jpg" alt="WordPress: 后台添加显示用户注册时间和登录IP"></a></p>
 <p>另附一些 可能需要用的插件：</p>
@@ -931,11 +932,12 @@ function cmhello_users_search_order($obj){
                         
                             &lt;?php
 $ios = array(
-    &#39;IOS-广告代码_1&#39;,
-    &#39;IOS-广告代码_2&#39;,
-    &#39;IOS-广告代码_3&#39;,
+    'IOS-广告代码_1',
+    'IOS-广告代码_2',
+    'IOS-广告代码_3',
 ); //广告代码随机数组
-$az =
+$az = array(
+    'AZ-广告代码_1',
                         
                     </div>
                     <div class="publish-info">
@@ -1158,58 +1160,10 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        font-size: 15px;
-        color: #229fe8;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="28285910"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#229fe8'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
-            <span id="year">2019</span>
+            <span id="year">2014</span>
             <a href="https://windxx.com" target="_blank">风子</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
