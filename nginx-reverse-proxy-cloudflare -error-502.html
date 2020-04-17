@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content=" Wordpress升级5.1.1后回复评论跳转问题 , 风之流年,Nginx,WordPress,Linux,学习笔记">
+    <meta name="keywords" content=" Nginx反向代理Cloudflare报502错误解决办法 , 风之流年,Nginx,WordPress,Linux,学习笔记">
     <meta name="description" content="一些关于WordPress、Linux和其他乱七八糟的学习资料备份。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title> Wordpress升级5.1.1后回复评论跳转问题  | 风之流年</title>
+    <title> Nginx反向代理Cloudflare报502错误解决办法  | 风之流年</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"> Wordpress升级5.1.1后回复评论跳转问题 </h1>
+                    <h1 class="description center-align post-title"> Nginx反向代理Cloudflare报502错误解决办法 </h1>
                 </div>
             </div>
         </div>
@@ -367,12 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Wordpress/">
-                                <span class="chip bg-color">Wordpress</span>
-                            </a>
-                        
-                            <a href="/tags/Ajax/">
-                                <span class="chip bg-color">Ajax</span>
+                            <a href="/tags/Nginx/">
+                                <span class="chip bg-color">Nginx</span>
                             </a>
                         
                     </div>
@@ -383,8 +379,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/WordPress/" class="post-category">
-                                WordPress
+                            <a href="/categories/Nginx/" class="post-category">
+                                Nginx
+                            </a>
+                        
+                            <a href="/categories/Nginx/Cloudflare/" class="post-category">
+                                Cloudflare
                             </a>
                         
                     </div>
@@ -396,7 +396,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-28
+                    2020-04-17
                 </div>
                 
 
@@ -412,22 +412,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>原文地址：<a href="https://zhang.ge/5147.html" target="_blank" rel="noopener">解决升级Wordpress 5.1后回复评论框不跟随、页面刷新问题</a></p>
-<p>有一个小网站，一直跟着Wordpress最新版本更新，没出过什么问题，今天打开想回条评论，结果点击<strong>回复</strong>按钮，跳转到了新页面，正常应该是评论框跟随过来，无刷新ajax评论的，鼓捣了几个小时，搜索了一些关键词，没有解决，最后想到评论ajax是从张戈这学到的，赶紧看看他遇到没有！</p>
-<p>原文如下：</p>
-<p>如果是 begin 主题，直接在 functions.php 里面找到：zmingcx_scripts 函数，在最后一个 } 之前加上：</p>
-<pre class=" language-php"><code class="language-php"><span class="token comment" spellcheck="true">// 加载回复js</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">is_singular</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">comments_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string">'thread_comments'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">wp_enqueue_script</span><span class="token punctuation">(</span> <span class="token string">'comment-reply'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>这段代码其实就是在页面加载一段 JS：</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>text/javascript<span class="token punctuation">'</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>/wp-includes/js/comment-reply.min.js?ver<span class="token punctuation">=</span>5.1.1<span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>所以，非 begin 主题，只需要在主题的 header.php 加上如下代码即可：</p>
-<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> <span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">is_singular</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">comments_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">get_option</span><span class="token punctuation">(</span> <span class="token string">'thread_comments'</span> <span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token delimiter">?></span>
-    <span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>text/javascript<span class="token punctuation">'</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>/wp-includes/js/comment-reply.min.js?ver<span class="token punctuation">=</span>5.1.1<span class="token punctuation">'</span></span><span class="token punctuation">></span></span></span><span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></span>
-<span class="token delimiter">&lt;?php</span> <span class="token punctuation">}</span> <span class="token delimiter">?></span>
+                <p>既然用了Cloudflare CDN为什么还要用服务器再次反代呢？</p>
+<p>Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速度全凭运气，时快时慢，有时还不能访问。</p>
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>在实际使用中，以下情况可以尝试一下：</p>
+<p>源服务器和反代服务器物理距离较远，延迟较大，可以使用Cloudflare中转一下，并且实现未备案网站国外Cloudflare加速，国内香港服务器反代。</p>
+<p>2、未备案网站国外Cloudflare加速，国内香港服务器反代。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007oPOSbly1gdwwperwzoj30hp0d2mxf.jpg" alt></p>
+<h2 id="解决502错误"><a href="#解决502错误" class="headerlink" title="解决502错误"></a>解决502错误</h2><p>首先反代Cloudflare报502错误的原因是Cloudflare做了限制，只需要修改一下Nginx配置即可。</p>
+<pre class=" language-nginx"><code class="language-nginx">如果当前域名和源站域名一致：
+proxy_ssl_name <span class="token variable">$host</span><span class="token punctuation">;</span>
+proxy_ssl_server_name on<span class="token punctuation">;</span>
+
+如果当前域名和源站域名不一致：
+proxy_ssl_name www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token punctuation">;</span><span class="token operator">/</span><span class="token operator">/</span>源站域名
+proxy_ssl_server_name on<span class="token punctuation">;</span>
 </code></pre>
 
             </div>
@@ -454,7 +452,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://windxx.com/wordpress-5-1-1-comment-ajax.html">https://windxx.com/wordpress-5-1-1-comment-ajax.html</a>
+                    <a href="https://windxx.com/nginx-reverse-proxy-cloudflare -error-502.html">https://windxx.com/nginx-reverse-proxy-cloudflare -error-502.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -492,12 +490,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Wordpress/">
-                                    <span class="chip bg-color">Wordpress</span>
-                                </a>
-                            
-                                <a href="/tags/Ajax/">
-                                    <span class="chip bg-color">Ajax</span>
+                                <a href="/tags/Nginx/">
+                                    <span class="chip bg-color">Nginx</span>
                                 </a>
                             
                         </div>
@@ -802,9 +796,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/nginx-reverse-proxy-cloudflare -error-502.html">
                     <div class="card-image">
@@ -825,9 +820,9 @@ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -844,6 +839,7 @@ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -862,32 +858,32 @@ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/Wordpress-for-hexo.html">
+                <a href="/wordpress-5-1-1-comment-ajax.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/medias/featureimages/13.jpg" class="responsive-img" alt=" 把博客从Wordpress迁移到hexo ">
+                        <img src="https://cdn.jsdelivr.net/gh/windxxcom/windxxcom.github.io@latest/medias/featureimages/12.jpg" class="responsive-img" alt=" Wordpress升级5.1.1后回复评论跳转问题 ">
                         
-                        <span class="card-title"> 把博客从Wordpress迁移到hexo </span>
+                        <span class="card-title"> Wordpress升级5.1.1后回复评论跳转问题 </span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客内容很少，写东西也很少，感觉用Wordpress有点浪费，于是迁移到了github上。
-搭建Github+Hexo的教程网上很多，就不重复写了，这次主要遇到的一个问题就是，新建的仓库一定要填写为用户名.github.io，之前看教程的时
+                            原文地址：解决升级Wordpress 5.1后回复评论框不跟随、页面刷新问题
+有一个小网站，一直跟着Wordpress最新版本更新，没出过什么问题，今天打开想回条评论，结果点击回复按钮，跳转到了新页面，正常应该是评论框跟随过来，无刷新aja
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
+                            <a href="/categories/WordPress/" class="post-category">
+                                    WordPress
                                 </a>
                             
                             
@@ -901,8 +897,8 @@ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速�
                         <span class="chip bg-color">Wordpress</span>
                     </a>
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/Ajax/">
+                        <span class="chip bg-color">Ajax</span>
                     </a>
                     
                 </div>

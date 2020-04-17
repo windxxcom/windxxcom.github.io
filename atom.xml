@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://windxx.com/"/>
-  <updated>2019-03-31T05:29:11.230Z</updated>
+  <updated>2020-04-17T09:56:03.271Z</updated>
   <id>https://windxx.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title> Nginx反向代理Cloudflare报502错误解决办法 </title>
+    <link href="https://windxx.com/nginx-reverse-proxy-cloudflare%20-error-502.html"/>
+    <id>https://windxx.com/nginx-reverse-proxy-cloudflare -error-502.html</id>
+    <published>2020-04-17T06:36:36.000Z</published>
+    <updated>2020-04-17T09:56:03.271Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;既然用了Cloudflare CDN为什么还要用服务器再次反代呢？&lt;/p&gt;
+&lt;p&gt;Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速度全凭运气，时快时慢，有时还不能访问。&lt;/p&gt;
+&lt;h2 id=&quot;适用场景&quot;&gt;&lt;a href=&quot;#适用场景&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Nginx" scheme="https://windxx.com/categories/Nginx/"/>
+    
+      <category term="Cloudflare" scheme="https://windxx.com/categories/Nginx/Cloudflare/"/>
+    
+    
+      <category term="Nginx" scheme="https://windxx.com/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title> Wordpress升级5.1.1后回复评论跳转问题 </title>
@@ -536,35 +566,6 @@
     
     
       <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
-    
-  </entry>
-  
-  <entry>
-    <title> WordPress wp-cron.php造成服务器CPU超标解决办法		</title>
-    <link href="https://windxx.com/wordpress-wp-cron-php-cpu.html"/>
-    <id>https://windxx.com/wordpress-wp-cron-php-cpu.html</id>
-    <published>2018-03-11T05:28:38.000Z</published>
-    <updated>2019-03-12T10:57:29.120Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;只要禁用WP-Cron就行了，编辑wp-config.php，加入一下一行:&lt;/p&gt;
-&lt;pre class=&quot; language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token
-        
-      
-    
-    </summary>
-    
-      <category term="WordPress" scheme="https://windxx.com/categories/WordPress/"/>
-    
-    
-      <category term="WordPress" scheme="https://windxx.com/tags/WordPress/"/>
-    
-      <category term="CPU" scheme="https://windxx.com/tags/CPU/"/>
     
   </entry>
   

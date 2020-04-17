@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Nginx反向代理Cloudflare报502错误解决办法]]></title>
+    <url>%2Fnginx-reverse-proxy-cloudflare%20-error-502.html</url>
+    <content type="text"><![CDATA[既然用了Cloudflare CDN为什么还要用服务器再次反代呢？ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速度全凭运气，时快时慢，有时还不能访问。 适用场景在实际使用中，以下情况可以尝试一下： 源服务器和反代服务器物理距离较远，延迟较大，可以使用Cloudflare中转一下，并且实现未备案网站国外Cloudflare加速，国内香港服务器反代。 2、未备案网站国外Cloudflare加速，国内香港服务器反代。 解决502错误首先反代Cloudflare报502错误的原因是Cloudflare做了限制，只需要修改一下Nginx配置即可。 如果当前域名和源站域名一致： proxy_ssl_name $host; proxy_ssl_server_name on; 如果当前域名和源站域名不一致： proxy_ssl_name www.baidu.com;//源站域名 proxy_ssl_server_name on;]]></content>
+      <categories>
+        <category>Nginx</category>
+        <category>Cloudflare</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Wordpress升级5.1.1后回复评论跳转问题]]></title>
     <url>%2Fwordpress-5-1-1-comment-ajax.html</url>
     <content type="text"><![CDATA[原文地址：解决升级Wordpress 5.1后回复评论框不跟随、页面刷新问题 有一个小网站，一直跟着Wordpress最新版本更新，没出过什么问题，今天打开想回条评论，结果点击回复按钮，跳转到了新页面，正常应该是评论框跟随过来，无刷新ajax评论的，鼓捣了几个小时，搜索了一些关键词，没有解决，最后想到评论ajax是从张戈这学到的，赶紧看看他遇到没有！ 原文如下： 如果是 begin 主题，直接在 functions.php 里面找到：zmingcx_scripts 函数，在最后一个 } 之前加上： // 加载回复js if ( is_singular() &amp;&amp; comments_open() &amp;&amp; get_option( 'thread_comments' ) ) { wp_enqueue_script( 'comment-reply' ); } 这段代码其实就是在页面加载一段 JS： &lt;script type='text/javascript' src='/wp-includes/js/comment-reply.min.js?ver=5.1.1'>&lt;/script> 所以，非 begin 主题，只需要在主题的 header.php 加上如下代码即可： &lt;?php if ( is_singular() &amp;&amp; comments_open() &amp;&amp; get_option( 'thread_comments' ) ) { ?> &lt;script type='text/javascript' src='/wp-includes/js/comment-reply.min.js?ver=5.1.1'>&lt;/script> &lt;?php } ?>]]></content>
