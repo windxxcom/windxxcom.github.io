@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[Nginx反向代理Cloudflare报502错误解决办法]]></title>
-    <url>%2Fnginx-reverse-proxy-cloudflare%20-error-502.html</url>
+    <url>%2Fnginx-reverse-proxy-cloudflare-error-502.html</url>
     <content type="text"><![CDATA[既然用了Cloudflare CDN为什么还要用服务器再次反代呢？ Cloudflare是全球最大最受欢迎的CDN厂商，但是无奈国内访问速度全凭运气，时快时慢，有时还不能访问。 适用场景在实际使用中，以下情况可以尝试一下： 源服务器和反代服务器物理距离较远，延迟较大，可以使用Cloudflare中转一下，并且实现未备案网站国外Cloudflare加速，国内香港服务器反代。 2、未备案网站国外Cloudflare加速，国内香港服务器反代。 解决502错误首先反代Cloudflare报502错误的原因是Cloudflare做了限制，只需要修改一下Nginx配置即可。 如果当前域名和源站域名一致： proxy_ssl_name $host; proxy_ssl_server_name on; 如果当前域名和源站域名不一致： proxy_ssl_name www.baidu.com;//源站域名 proxy_ssl_server_name on;]]></content>
       <categories>
         <category>Nginx</category>
